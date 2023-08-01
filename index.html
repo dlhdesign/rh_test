@@ -9,7 +9,7 @@
     line-height: 1.5;
     text-align: center;
     font-family: system-ui, sans-serif;
-    background: #00f;
+    background: #070;
   }
   td {
     height: 3rem;
@@ -51,7 +51,7 @@
   </tr>
 </table>
 
-<h1 hidden>Game over</h1>
+<h2 hidden>Game over</h2>
 
 <script>
   // Initialization
@@ -79,7 +79,7 @@
       document.querySelector(`tr:nth-child(${x}) td:nth-child(${y})`)
     )
   );
-  const gameOver = document.querySelectorAll("h1")[1];
+  const gameOver = document.querySelector("h2");
   const HUMAN = "🧑‍💻";
   const ROBOT = "🤖";
 
