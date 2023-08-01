@@ -51,7 +51,7 @@
   </tr>
 </table>
 
-<h2 hidden>Game over</h2>
+<h2 hidden>Draw!</h2>
 
 <script>
   // Initialization
@@ -126,6 +126,10 @@
     ];
     if (victor.length > 0) {
       gameOver.innerHTML = `${victor[0][0].innerHTML} wins!`
+      return true;
+    }
+    let turnsTaken = boxes.filter(td => td.innerHTML === HUMAN || td.innerHTML === ROBOT);
+    if (turnsTaken.length === boxes.length) {
       return true;
     }
     return false;
