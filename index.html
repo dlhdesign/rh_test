@@ -9,14 +9,14 @@
     line-height: 1.5;
     text-align: center;
     font-family: system-ui, sans-serif;
-    background: #070;
+    background: #c00;
   }
   td {
     height: 3rem;
     width: 3rem;
     text-align: center;
     border-style: solid;
-    border-color: #600;
+    border-color: #000;
   }
   table {
     margin: 5rem auto;
@@ -119,18 +119,24 @@
 
   // Determine win
   function hasWin() {
-    return (
-      rows.some(hasAllSame) ||
-      columns.some(hasAllSame) ||
-      diagonals.some(hasAllSame)
-    );
+    let victor = [
+      ...rows.filter(hasAllSame),
+      ...columns.filter(hasAllSame),
+      ...diagonals.filter(hasAllSame)
+    ];
+    if (victor.length > 0) {
+      gameOver.innerHTML = `${victor[0][0].innerHTML} wins!`
+      return true;
+    }
+    return false;
   }
 
   // Determine if every cell matches
   function hasAllSame(arr) {
-    return arr.every(
+    let match = arr.every(
       (td) => !td.querySelector("input") && td.innerHTML === arr[0].innerHTML
     );
+    return match;
   }
 
   // Display game over, cancel events
